@@ -78,7 +78,7 @@ bool valida(int t){
         for(int j = 0; j < t; j++)
             M[i][j] = A[i][j];
     
-    if(det(M) >= 0)
+    if(det(M) > 0)
         return true;
     else    
         return false;
@@ -94,7 +94,7 @@ int det(vector<vector<int>> mat){
         if(mat[0][j] != 0)
             determinante += mat[0][j]*pow(-1, 1+j)*det(submatriz(0, j, mat));
     }    
-    
+
     return determinante;
 }
 
