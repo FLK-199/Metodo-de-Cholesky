@@ -77,7 +77,7 @@ bool valida(int t){
     for(int i = 0; i < t; i++)
         for(int j = 0; j < t; j++)
             M[i][j] = A[i][j];
-
+    
     if(det(M) >= 0)
         return true;
     else    
@@ -91,9 +91,10 @@ int det(vector<vector<int>> mat){
         return mat[0][0];
 
     for(int j = 0; j < mat.size(); j++){
-        determinante += pow(-1, 1*j)*det(submatriz(0, j, mat));
+        if(mat[0][j] != 0)
+            determinante += mat[0][j]*pow(-1, 1+j)*det(submatriz(0, j, mat));
     }    
-
+    
     return determinante;
 }
 
@@ -105,9 +106,9 @@ vector<vector<int>> submatriz(int linha, int coluna, vector<vector<int>> mat){
     int ni = 0, nj = 0;
 
     for(int i = 0; i < tam; i++){
-        if(i == linha){
+        if(i != linha){
             for(int j = 0; j < tam; j++){
-                if(j == coluna){
+                if(j != coluna){
                     sub[ni][nj] = mat[i][j];
                     nj++;
                 }   
@@ -119,4 +120,3 @@ vector<vector<int>> submatriz(int linha, int coluna, vector<vector<int>> mat){
 
     return sub;
 }
-
