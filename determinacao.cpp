@@ -7,6 +7,7 @@ int n;
 
 int calcula_Gij(int, int);
 vector<vector<int>> transposta(vector<vector<int>>);
+void imprimir(vector<vector<int>>);
 
 int main(){
     cin >> n;
@@ -18,6 +19,10 @@ int main(){
         for(int j = 0; j < n; j++)
             cin >> A[i][j];
 
+    cout << "Matriz A:" << endl;
+    imprimir(A);
+    cout << endl;
+
     //Calcula a matriz G
     for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
@@ -28,20 +33,12 @@ int main(){
 
     //imprimi os resultados
     cout << "Matriz G:" << endl;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++)
-            cout << G[i][j] << " ";
-        cout << endl;
-    }
-
+    imprimir(G);
     cout << endl;
 
     cout << "Matriz Gt:" << endl;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++)
-            cout << Gt[i][j] << " ";
-        cout << endl;
-    }
+    imprimir(Gt);
+    cout << endl;
 
     return 0;
 }
@@ -50,6 +47,14 @@ int main(){
 int calcula_Gij(int i, int j){
     //TODO
     return 0;
+}
+
+void imprimir(vector<vector<int>> mat){
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++)
+            printf("%2d ", mat[i][j]);
+        cout << endl;
+    }
 }
 
 vector<vector<int>> transposta(vector<vector<int>> mat){
