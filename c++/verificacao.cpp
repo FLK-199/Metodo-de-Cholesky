@@ -2,14 +2,16 @@
 
 using namespace std;
 
-vector<vector<int>> A;
+#define Matriz vector<vector<int>>
+
+Matriz A;
 int n;
 
 bool simetrica();
-bool positiva_definida();
+bool positivaDefinida();
 bool valida(int);
-int det(vector<vector<int>>);
-vector<vector<int>> submatriz(int, int, vector<vector<int>>);
+int det(Matriz);
+Matriz subMatriz(int, int, Matriz);
 
 int main(){
     //Leitura
@@ -35,7 +37,7 @@ int main(){
 
     //Verifica se é positiva definida
     bool f2;
-    if(positiva_definida()){
+    if(positivaDefinida()){
         cout << "e positiva definida" << endl;
         f2 = true;
     }
@@ -63,7 +65,7 @@ bool simetrica(){
     return true;
 }
 
-bool positiva_definida(){
+bool positivaDefinida(){
     for(int i = 0; i < n; i++)
         if(!valida(i+1))
             return false;
@@ -72,7 +74,7 @@ bool positiva_definida(){
 }
 
 bool valida(int t){
-    vector<vector<int>> M(t, vector<int>(t));
+    Matriz M(t, vector<int>(t));
 
     for(int i = 0; i < t; i++)
         for(int j = 0; j < t; j++)
@@ -84,7 +86,7 @@ bool valida(int t){
         return false;
 }
 
-int det(vector<vector<int>> mat){
+int det(Matriz mat){
     int determinante = 0;
 
     if(mat.size() == 1)
@@ -92,16 +94,16 @@ int det(vector<vector<int>> mat){
 
     for(int j = 0; j < mat.size(); j++){
         if(mat[0][j] != 0)
-            determinante += mat[0][j]*pow(-1, 1+j)*det(submatriz(0, j, mat));
+            determinante += mat[0][j]*pow(-1, 1+j)*det(subMatriz(0, j, mat));
     }    
 
     return determinante;
 }
 
-vector<vector<int>> submatriz(int linha, int coluna, vector<vector<int>> mat){
+Matriz subMatriz(int linha, int coluna, Matriz mat){
     int tam = mat.size();
 
-    vector<vector<int>> sub(tam-1, vector<int>(tam-1));
+    Matriz sub(tam-1, vector<int>(tam-1));
 
     int ni = 0, nj = 0;
 
