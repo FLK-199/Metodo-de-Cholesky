@@ -2,12 +2,14 @@
 
 using namespace std;
 
-vector<vector<int>> A, G, Gt;
+#define Matriz vector<vector<int>>
+
+Matriz A, G, Gt;
 int n;
 
 int calcula_Gij(int, int);
-vector<vector<int>> transposta(vector<vector<int>>);
-void imprimir(vector<vector<int>>);
+Matriz transposta(Matriz);
+void imprimir(Matriz);
 
 int main(){
     cin >> n;
@@ -49,7 +51,7 @@ int calcula_Gij(int i, int j){
     return 0;
 }
 
-void imprimir(vector<vector<int>> mat){
+void imprimir(Matriz mat){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++)
             printf("%2d ", mat[i][j]);
@@ -57,8 +59,8 @@ void imprimir(vector<vector<int>> mat){
     }
 }
 
-vector<vector<int>> transposta(vector<vector<int>> mat){
-    vector<vector<int>> T(n, vector<int>(n));
+Matriz transposta(Matriz mat){
+    Matriz T(n, vector<int>(n));
 
     for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
