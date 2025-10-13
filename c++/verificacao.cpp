@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define Matriz vector<vector<int>>
+#define Matriz vector<vector<double>>
 
 Matriz A;
 int n;
@@ -16,7 +16,7 @@ Matriz subMatriz(int, int, Matriz);
 int main(){
     //Leitura
     cin >> n;
-    A.resize(n, vector<int>(n));
+    A.resize(n, vector<double>(n));
 
     for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
@@ -74,7 +74,7 @@ bool positivaDefinida(){
 }
 
 bool valida(int t){
-    Matriz M(t, vector<int>(t));
+    Matriz M(t, vector<double>(t));
 
     for(int i = 0; i < t; i++)
         for(int j = 0; j < t; j++)
@@ -87,7 +87,7 @@ bool valida(int t){
 }
 
 int det(Matriz mat){
-    int determinante = 0;
+    double determinante = 0;
 
     if(mat.size() == 1)
         return mat[0][0];
@@ -103,7 +103,7 @@ int det(Matriz mat){
 Matriz subMatriz(int linha, int coluna, Matriz mat){
     int tam = mat.size();
 
-    Matriz sub(tam-1, vector<int>(tam-1));
+    Matriz sub(tam-1, vector<double>(tam-1));
 
     int ni = 0, nj = 0;
 
