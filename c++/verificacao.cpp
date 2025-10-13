@@ -10,7 +10,7 @@ int n;
 bool simetrica();
 bool positivaDefinida();
 bool valida(int);
-int det(Matriz);
+double det(Matriz);
 Matriz subMatriz(int, int, Matriz);
 
 int main(){
@@ -86,7 +86,7 @@ bool valida(int t){
         return false;
 }
 
-int det(Matriz mat){
+double det(Matriz mat){
     double determinante = 0;
 
     if(mat.size() == 1)
@@ -94,7 +94,7 @@ int det(Matriz mat){
 
     for(int j = 0; j < mat.size(); j++){
         if(mat[0][j] != 0)
-            determinante += mat[0][j]*pow(-1, 1+j)*det(subMatriz(0, j, mat));
+            determinante += mat[0][j]*pow(-1, j)*det(subMatriz(0, j, mat));
     }    
 
     return determinante;
