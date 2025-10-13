@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define Matriz vector<vector<int>>
+#define Matriz vector<vector<double>>
 
 Matriz A, G, Gt;
 int n;
@@ -14,8 +14,8 @@ void imprimir(Matriz);
 int main(){
     cin >> n;
 
-    A.resize(n, vector<int>(n));
-    G.resize(n, vector<int>(n, 0));
+    A.resize(n, vector<double>(n));
+    G.resize(n, vector<double>(n, 0));
 
     for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
@@ -45,7 +45,7 @@ int main(){
 
 //Determina G
 Matriz calculo_G(){
-    Matriz mat(n, vector<int>(n, 0));
+    Matriz mat(n, vector<double>(n, 0));
     
     for(int j = 0; j < n; j++){
         for(int i = j; i < n; i++){
@@ -53,7 +53,7 @@ Matriz calculo_G(){
                 mat[0][0] = sqrt(A[0][0]);
             }
             if(i == j){
-                int soma = 0;
+                double soma = 0;
 
                 for(int k = 0; k < i; k++)
                     soma += pow(mat[i][k], 2);
@@ -64,7 +64,7 @@ Matriz calculo_G(){
                 mat[i][0] = A[i][0]/mat[0][0];
             }
             else{
-                int soma = 0;
+                double soma = 0;
 
                 for(int k = 0; k < j; k++)
                     soma += mat[i][k]*mat[j][k];
@@ -82,14 +82,14 @@ Matriz calculo_G(){
 void imprimir(Matriz mat){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++)
-            printf("%2d ", mat[i][j]);
+            printf("%2.0f ", mat[i][j]);
         cout << endl;
     }
 }
 
 //Retorna a transposta de uma matriz
 Matriz transposta(Matriz mat){
-    Matriz T(n, vector<int>(n));
+    Matriz T(n, vector<double>(n));
 
     for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
