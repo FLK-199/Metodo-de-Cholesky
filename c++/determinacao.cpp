@@ -7,7 +7,7 @@ using namespace std;
 Matriz A, G, Gt;
 int n;
 
-int calcula_Gij(int, int);
+Matriz calculo_G();
 Matriz transposta(Matriz);
 void imprimir(Matriz);
 
@@ -25,15 +25,13 @@ int main(){
     imprimir(A);
     cout << endl;
 
-    //Calcula a matriz G
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < n; j++)
-            G[i][j] = calcula_Gij(i, j);
+    //Calculo da matriz G
+    G = calculo_G();
     
-    //Determina Gt
+    //Determinação de Gt
     Gt = transposta(G);
 
-    //imprimi os resultados
+    //Impressão dos resultados
     cout << "Matriz G:" << endl;
     imprimir(G);
     cout << endl;
@@ -45,12 +43,42 @@ int main(){
     return 0;
 }
 
-//Calcula a componente Gij
-int calcula_Gij(int i, int j){
-    //TODO
-    return 0;
+//Determina G
+Matriz calculo_G(){
+    Matriz mat(n, vector<int>(n, 0));
+    
+    for(int j = 0; j < n; j++){
+        for(int i = j; i < n; i++){
+            if(i == 0 && j == 0){
+                mat[0][0] = sqrt(A[0][0]);
+            }
+            if(i == j){
+                int soma = 0;
+
+                for(int k = 0; k < i; k++)
+                    soma += pow(mat[i][k], 2);
+
+                mat[i][i] = sqrt(A[i][i] - soma);
+            }
+            if(j == 0){
+                mat[i][0] = A[i][0]/mat[0][0];
+            }
+            else{
+                int soma = 0;
+
+                for(int k = 0; k < j; k++)
+                    soma += mat[i][k]*mat[j][k];
+
+                mat[i][j] = (A[i][j] - soma)/mat[j][j];
+
+            } 
+        }
+    }
+
+    return mat;
 }
 
+//Imprime uma matriz
 void imprimir(Matriz mat){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++)
@@ -59,6 +87,7 @@ void imprimir(Matriz mat){
     }
 }
 
+//Retorna a transposta de uma matriz
 Matriz transposta(Matriz mat){
     Matriz T(n, vector<int>(n));
 
