@@ -32,6 +32,9 @@ int main(){
     for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
             cin >> A[i][j];
+    
+    for(int i = 0; i < n; i++)
+        cin >> b[i];
 
     //Verifica se é simétrica
     bool f1;
@@ -94,7 +97,7 @@ int main(){
     
     cout << "resultado: " << endl;
     for(int i = 0; i < n; i++)
-    cout << "x" << i+1 << " = " << x[i] << " ";
+    cout << "x" << i+1 << " = " << x[i] << endl;
     cout << endl;
     
     return 0;
@@ -222,7 +225,7 @@ Matriz transposta(Matriz mat){
 void imprimir(Matriz mat){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++)
-            printf("%2.0f ", mat[i][j]);
+            printf("%4f ", mat[i][j]);
         cout << endl;
     }
 }
@@ -232,7 +235,7 @@ vector<double> calculo_x(){
     vector<double> vec(n);
 
     for(int i = n - 1; i >= 0; i--){
-        int w = 0;
+        double w = 0.0;
 
         for(int k = i+1; k < n; k++){
             w += Gt[i][k]*vec[k];
@@ -249,7 +252,7 @@ vector<double> calculo_y(){
     vector<double> vec(n);
 
     for(int i = 0; i < n; i++){
-        int w = 0;
+        double w = 0.0;
 
         for(int k = 0; k < i; k++){
             w += G[i][k]*vec[k];
