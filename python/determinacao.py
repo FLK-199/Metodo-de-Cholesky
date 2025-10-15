@@ -3,8 +3,9 @@ import math
 
 n = int(input())
 A = np.zeros((n, n))
-G = np.zeros((n, n))
-Gt = np.zeros((n, n))
+
+for i in range(n):
+    A[i] = list(map(float, input().split()))
 
 def imprimir(mat):
     for i in mat:
@@ -28,10 +29,6 @@ def calculo_G(mat):
                 G[i][j] = (A[i][j] - soma) / G[j][j]
 
     return G
-
-
-for i in range(n):
-    A[i] = list(map(float, input().split()))
 
 G = calculo_G(A)
 Gt = G.T
