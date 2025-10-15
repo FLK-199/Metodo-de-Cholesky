@@ -1,5 +1,4 @@
 import numpy as np
-import math
 
 n = int(input())
 A = np.zeros((n, n))
