@@ -32,7 +32,10 @@ int main(){
     for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
             cin >> A[i][j];
-    
+
+    //apenas para ler b #
+    string str;cin >> str;
+
     for(int i = 0; i < n; i++)
         cin >> b[i];
 
