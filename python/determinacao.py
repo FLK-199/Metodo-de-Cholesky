@@ -2,8 +2,8 @@ import numpy as np
 import math
 
 n = int(input())
-A = np.zeros((n, n))
 
+A = np.zeros((n, n))
 for i in range(n):
     A[i] = list(map(float, input().split()))
 
@@ -39,3 +39,4 @@ print("G:")
 imprimir(G)
 print("Gt:")
 imprimir(Gt)
+
