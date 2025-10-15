@@ -7,6 +7,8 @@ A = np.zeros((n, n))
 for i in range(n):
     A[i] = list(map(float, input().split()))
     
+ignora = input()
+
 b = list(map(float, input().split()))
 
 def verificacao():
@@ -60,5 +62,5 @@ if verificacao() == 0:
     y = np.linalg.solve(G,b)
     x = np.linalg.solve(Gt,y)
 
-    print("x:")
+    print("\nx:")
     print(x)
