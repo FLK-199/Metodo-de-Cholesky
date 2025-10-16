@@ -39,4 +39,3 @@ print("G:")
 imprimir(G)
 print("Gt:")
 imprimir(Gt)
-
