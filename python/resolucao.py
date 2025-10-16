@@ -7,6 +7,8 @@ A = np.zeros((n, n))
 for i in range(n):
     A[i] = list(map(float, input().split()))
 
+ignora = input()
+
 b = list(map(float, input().split()))
 
 def imprimir(mat):
@@ -46,3 +48,4 @@ print("Gt:")
 imprimir(Gt)
 print("x:")
 print(x)
+
