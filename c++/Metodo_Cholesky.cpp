@@ -34,7 +34,8 @@ int main(){
             cin >> A[i][j];
     
     //ignora o b #
-    string ignora;cin >> ignora;
+    cin.ignore();
+    string ignora; getline(cin, ignora);
 
     for(int i = 0; i < n; i++)
         cin >> b[i];
@@ -266,3 +267,4 @@ vector<double> calculo_y(){
 
     return vec;
 }
+
