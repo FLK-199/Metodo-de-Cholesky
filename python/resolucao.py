@@ -40,12 +40,5 @@ Gt = G.T
 y = np.linalg.solve(G,b)
 x = np.linalg.solve(Gt,y)
 
-print("\nA:")
-imprimir(A)
-print("G:")
-imprimir(G)
-print("Gt:")
-imprimir(Gt)
 print("x:")
 print(x)
-
