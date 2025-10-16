@@ -27,6 +27,9 @@ int main(){
         for(int j = 0; j < n; j++)
             cin >> A[i][j];
 
+    cin.ignore();
+    string ignora; getline(cin, ignora);
+
     for(int i = 0; i < n; i++)
         cin >> b[i];
 
@@ -127,3 +130,4 @@ Matriz transposta(Matriz mat){
 
     return T;
 }
+
